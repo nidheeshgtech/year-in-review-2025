@@ -339,6 +339,42 @@ const SectionThree = () => {
             </div>
           </SwiperSlide>
           
+          {/* Duplicate first few slides for seamless loop */}
+          <SwiperSlide className="swiper-slide-image image-card-large">
+            <div className="image-card">
+              <div className="image-wrapper">
+                <img 
+                  src={gtech01} 
+                  alt="GTECH image 1"
+                  className="reveal-image"
+                />
+              </div>
+            </div>
+          </SwiperSlide>
+          
+          <SwiperSlide className="swiper-slide-image image-card-medium">
+            <div className="image-card">
+              <div className="image-wrapper">
+                <img 
+                  src={gtech02} 
+                  alt="GTECH image 2"
+                  className="reveal-image"
+                />
+              </div>
+            </div>
+          </SwiperSlide>
+          
+          <SwiperSlide className="swiper-slide-image image-card-small">
+            <div className="image-card">
+              <div className="image-wrapper">
+                <img 
+                  src={gtech03} 
+                  alt="GTECH image 3"
+                  className="reveal-image"
+                />
+              </div>
+            </div>
+          </SwiperSlide>
         </Swiper>
       </div>
     </section>
