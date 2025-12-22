@@ -208,7 +208,7 @@ const TeamHeartbeat = () => {
     const getCanvasHeight = () => {
       // Mobile: 500px, Desktop: window.innerHeight
       const isMobile = window.innerWidth < 768;
-      return isMobile ? 600 : window.innerHeight;
+      return isMobile ? 600 : 1200;
     };
 
     // Create a renderer with higher quality settings
@@ -336,7 +336,7 @@ const TeamHeartbeat = () => {
     // Note: Chamfer radius should be <= half the height (25) for best rendering
     // Using 25 for perfect capsule shape without rendering artifacts
     // Increased chamfer radius slightly for smoother edges
-    const radius = 25; // Perfect capsule radius (half of height 50)
+    const radius = isMobile ? 30 : 50; // Adjust based on mobile/desktop height
     const capsuleHeight = 50; // Height of capsules
     const whiteColor = '#FFFFFF';
     const darkBlueColor = '#2D328C';
@@ -362,43 +362,56 @@ const TeamHeartbeat = () => {
 
     // Create capsule-shaped bodies with text labels - centered around screen center
     // Increased widths to add more left/right padding
-    const projectManagers = Bodies.rectangle(centerX - 200, centerY - 100, 220, 50, {
-      ...physicsProperties,
-      label: 'PROJECT MANAGERS'
-    });
+   
 
-    const adminNinjas = Bodies.rectangle(centerX, centerY + 100, 180, 50, {
+    const projectManagers = Bodies.rectangle(
+      centerX - 200, 
+      centerY - 100, 
+      isMobile ? 250 : 300,  // width: 200px mobile, 300px desktop
+      isMobile ? 60 : 100,   // height: 60px mobile, 100px desktop
+      {
+        ...physicsProperties,
+        label: 'PROJECT MANAGERS'
+      }
+    );
+
+    const adminNinjas = Bodies.rectangle(centerX, 
+      centerY + 100, 
+      isMobile ? 180 : 220, 
+      isMobile ? 60 : 100, 
+      {
       ...physicsProperties,
       label: 'ADMIN NINJAS'
     });
 
-    const seoGurus = Bodies.rectangle(centerX - 350, centerY - 200, 160, 50, {
+    const seoGurus = Bodies.rectangle(centerX - 350, centerY - 200, isMobile ? 160 : 200, isMobile ? 60 : 100, {
       ...physicsProperties,
       label: 'SEO GURUS'
     });
 
-    const dearClients = Bodies.rectangle(centerX + 100, centerY - 150, 180, 50, {
+    const dearClients = Bodies.rectangle(centerX + 100, centerY - 150, isMobile ? 180 : 240, isMobile ? 60 : 100, {
       ...physicsProperties,
       label: 'DEAR CLIENTS'
     });
 
-    const devs = Bodies.rectangle(centerX - 20, centerY, 120, 50, {
+    const devs = Bodies.rectangle(centerX - 20, centerY, isMobile ? 120 : 140, isMobile ? 60 : 100, {
       ...physicsProperties,
       label: 'DEVS'
     });
 
-    const designers = Bodies.rectangle(centerX + 200, centerY - 100, 170, 50, {
+    const designers = Bodies.rectangle(centerX + 200, centerY - 100, isMobile ? 170 : 220, isMobile ? 60 : 100, {
       ...physicsProperties,
       label: 'DESIGNERS'
     });
 
-    const marketers = Bodies.rectangle(centerX + 250, centerY + 100, 170, 50, {
+    const marketers = Bodies.rectangle(centerX + 250, centerY + 100, isMobile ? 170 : 230, isMobile ? 60 : 100, {
       ...physicsProperties,
       label: 'MARKETERS'
     });
 
     // Create dark blue circular body with arrow - centered
-    const arrowCircle = Bodies.circle(centerX + 50, centerY, 50, {
+    const arrowCircleRadius = isMobile ? 60 : 70; // Increased from 50
+    const arrowCircle = Bodies.circle(centerX + 50, centerY, arrowCircleRadius, {
       frictionAir: 0.05, // Reduced air resistance for faster movement
       friction: 0.1,
       restitution: 0.4,
@@ -472,7 +485,7 @@ const TeamHeartbeat = () => {
           ctx.translate(body.position.x, body.position.y);
           ctx.rotate(body.angle);
           ctx.fillStyle = '#000000';
-          ctx.font = 'bold 16px Arial, sans-serif';
+          ctx.font = 'bold ' + (isMobile ? '16px' : '22px') + ' Arial, sans-serif';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
           ctx.fillText(body.label, 0, 0);
@@ -484,32 +497,32 @@ const TeamHeartbeat = () => {
           ctx.rotate(body.angle);
           
           // Scale the arrow to fit nicely in the circle (radius 50)
-          const scale = 0.7; // Scale factor to fit arrow in circle
-          const svgWidth = 29;
-          const svgHeight = 28;
-          const centerX = 14.4142;
-          const centerY = 14; // Middle of viewBox height
+          const scale = isMobile ? 0.9 : 1.2; // Scale factor to fit arrow in circle
+          const svgWidth = 40; // Increased from 29
+          const svgHeight = 38; // Increased from 28
+          const centerX = 20; // Adjusted center X
+          const centerY = 19; // Adjusted center Y
           
           ctx.scale(scale, scale);
           ctx.translate(-centerX, -centerY);
           
           // Set stroke properties
           ctx.strokeStyle = '#FFFFFF';
-          ctx.lineWidth = 2 / scale; // Adjust line width for scale
+          ctx.lineWidth = 2.5 / scale; // Adjust line width for scale
           ctx.lineCap = 'square';
           ctx.lineJoin = 'round';
           
-          // Draw the arrow path: M14.4142 1.00003L14.4142 27M14.4142 27L27.4142 14M14.4142 27L1.4142 14
+          // Draw the arrow path - scaled up coordinates
           ctx.beginPath();
           // Vertical line
-          ctx.moveTo(14.4142, 1.00003);
-          ctx.lineTo(14.4142, 27);
+          ctx.moveTo(20, 2);
+          ctx.lineTo(20, 36);
           // Right side of arrow
-          ctx.moveTo(14.4142, 27);
-          ctx.lineTo(27.4142, 14);
+          ctx.moveTo(20, 36);
+          ctx.lineTo(37, 19);
           // Left side of arrow
-          ctx.moveTo(14.4142, 27);
-          ctx.lineTo(1.4142, 14);
+          ctx.moveTo(20, 36);
+          ctx.lineTo(3, 19);
           ctx.stroke();
           
           ctx.restore();

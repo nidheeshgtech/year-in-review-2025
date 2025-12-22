@@ -4,9 +4,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import frame01 from '../images/frame01.webp';
-import frame02 from '../images/frame02.webp';
-import frame03 from '../images/frame03.webp';
+import gtech01 from '../images/gtech_01.webp';
+import gtech02 from '../images/gtech_02.webp';
+import gtech03 from '../images/gtech_03.webp';
+import gtech04 from '../images/gtech_04.webp';
+import gtech05 from '../images/gtech_05.GIF';
+import gtech06 from '../images/gtech_06.webp';
+import gtech07 from '../images/gtech_07.webp';
+import gtech08 from '../images/gtech_08.webp';
+import gtech09 from '../images/gtech_09.webp';
 import '../general.scss';
 
 // Register GSAP plugin
@@ -17,6 +23,12 @@ const SectionThree = () => {
   const image1Ref = useRef(null);
   const image2Ref = useRef(null);
   const image3Ref = useRef(null);
+  const image4Ref = useRef(null);
+  const image5Ref = useRef(null);
+  const image6Ref = useRef(null);
+  const image7Ref = useRef(null);
+  const image8Ref = useRef(null);
+  const image9Ref = useRef(null);
   const titleRef = useRef(null);
   const swiperRef = useRef(null);
 
@@ -25,48 +37,15 @@ const SectionThree = () => {
     const image1 = image1Ref.current;
     const image2 = image2Ref.current;
     const image3 = image3Ref.current;
+    const image4 = image4Ref.current;
+    const image5 = image5Ref.current;
+    const image6 = image6Ref.current;
+    const image7 = image7Ref.current;
+    const image8 = image8Ref.current;
+    const image9 = image9Ref.current;
     const title = titleRef.current;
 
-    if (!section || !image1 || !image2 || !image3 || !title) return;
-
-    // Get image cards (the elements with clip-path)
-    const image1Card = image1.closest('.image-card');
-    const image2Card = image2.closest('.image-card');
-    const image3Card = image3.closest('.image-card');
-
-    // Set initial states for images - only for first set with refs
-    // Image 1: Start from top with blur and scale
-    // gsap.set(image1, {
-    //   scale: 1,
-    //   opacity: 1,
-    //   filter: 'blur(0px)'
-    // });
-    // gsap.set(image1Card, {
-    //   clipPath: 'inset(0% 0% 0% 0%)' // Already visible
-    // });
-
-    // // Image 2: Start visible
-    // gsap.set(image2, {
-    //   scale: 1,
-    //   opacity: 1,
-    //   rotation: 0,
-    //   filter: 'blur(0px)'
-    // });
-    // gsap.set(image2Card, {
-    //   clipPath: 'inset(0% 0% 0% 0%)' // Already visible
-    // });
-
-    // // Image 3: Start visible
-    // gsap.set(image3, {
-    //   scale: 1,
-    //   opacity: 1,
-    //   filter: 'blur(0px)',
-    //   x: 0,
-    //   y: 0
-    // });
-    // gsap.set(image3Card, {
-    //   clipPath: 'inset(0% 0% 0% 0%)' // Already visible
-    // });
+    if (!section || !title) return;
 
     gsap.set(title, {
       opacity: 0,
@@ -248,8 +227,8 @@ const SectionThree = () => {
               <div className="image-wrapper">
                 <img 
                   ref={image1Ref}
-                  src={frame01} 
-                  alt="Team collaboration"
+                  src={gtech01} 
+                  alt="GTECH image 1"
                   className="reveal-image"
                 />
               </div>
@@ -261,8 +240,8 @@ const SectionThree = () => {
               <div className="image-wrapper">
                 <img 
                   ref={image2Ref}
-                  src={frame02} 
-                  alt="Creative workspace"
+                  src={gtech02} 
+                  alt="GTECH image 2"
                   className="reveal-image"
                 />
               </div>
@@ -274,8 +253,8 @@ const SectionThree = () => {
               <div className="image-wrapper">
                 <img 
                   ref={image3Ref}
-                  src={frame03} 
-                  alt="Urban landscape"
+                  src={gtech03} 
+                  alt="GTECH image 3"
                   className="reveal-image"
                 />
               </div>
@@ -286,8 +265,9 @@ const SectionThree = () => {
             <div className="image-card">
               <div className="image-wrapper">
                 <img 
-                  src={frame01} 
-                  alt="Team collaboration"
+                  ref={image4Ref}
+                  src={gtech04} 
+                  alt="GTECH image 4"
                   className="reveal-image"
                 />
               </div>
@@ -298,8 +278,9 @@ const SectionThree = () => {
             <div className="image-card">
               <div className="image-wrapper">
                 <img 
-                  src={frame02} 
-                  alt="Creative workspace"
+                  ref={image5Ref}
+                  src={gtech05} 
+                  alt="GTECH image 5"
                   className="reveal-image"
                 />
               </div>
@@ -310,8 +291,9 @@ const SectionThree = () => {
             <div className="image-card">
               <div className="image-wrapper">
                 <img 
-                  src={frame03} 
-                  alt="Urban landscape"
+                  ref={image6Ref}
+                  src={gtech06} 
+                  alt="GTECH image 6"
                   className="reveal-image"
                 />
               </div>
@@ -322,8 +304,9 @@ const SectionThree = () => {
             <div className="image-card">
               <div className="image-wrapper">
                 <img 
-                  src={frame01} 
-                  alt="Team collaboration"
+                  ref={image7Ref}
+                  src={gtech07} 
+                  alt="GTECH image 7"
                   className="reveal-image"
                 />
               </div>
@@ -334,8 +317,9 @@ const SectionThree = () => {
             <div className="image-card">
               <div className="image-wrapper">
                 <img 
-                  src={frame02} 
-                  alt="Creative workspace"
+                  ref={image8Ref}
+                  src={gtech08} 
+                  alt="GTECH image 8"
                   className="reveal-image"
                 />
               </div>
@@ -346,50 +330,15 @@ const SectionThree = () => {
             <div className="image-card">
               <div className="image-wrapper">
                 <img 
-                  src={frame03} 
-                  alt="Urban landscape"
+                  ref={image9Ref}
+                  src={gtech09} 
+                  alt="GTECH image 9"
                   className="reveal-image"
                 />
               </div>
             </div>
           </SwiperSlide>
           
-          {/* Duplicate first few slides for seamless loop */}
-          <SwiperSlide className="swiper-slide-image image-card-large">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  src={frame01} 
-                  alt="Team collaboration"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-medium">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  src={frame02} 
-                  alt="Creative workspace"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-small">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  src={frame03} 
-                  alt="Urban landscape"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
         </Swiper>
       </div>
     </section>

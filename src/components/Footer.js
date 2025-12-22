@@ -842,7 +842,7 @@ const Footer = () => {
                 <br />
                 GROUNDBREAKING
                 <br />
-                SUCCESS AHEAD
+                SUCCESS   AHEAD
               </h2>
             </div>
 

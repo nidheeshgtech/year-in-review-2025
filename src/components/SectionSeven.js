@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import recapVideo from '../images/recap-video.mp4';
+import recapVideo from '../images/recap-video_.mp4';
 
 import '../general.scss';
 
