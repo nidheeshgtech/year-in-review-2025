@@ -11,7 +11,8 @@ export function initHeroScrollAnimation(
   const heroIntroTextElements = gsap.utils.toArray(".hero__intro__text");
 
   const heroHeaders = gsap.utils.toArray(".hero__card__content h1");
-  const heroInitial = document.querySelector(".hero__card__initial");
+  // const heroInitial = document.querySelector(".hero__card__initial");
+  const heroInitial = document.querySelector(".initial_to_hide");
 
   const heroCardMedia = document.querySelector(".hero__card__media");
 

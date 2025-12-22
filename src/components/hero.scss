@@ -140,14 +140,14 @@ $font-instrument-serif: "Instrument Serif";
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-block: 6rem;
+  padding-block: 3.7rem;
 
   .hero__card__initial__header {
-    font-size: 1.6rem;
+    font-size: 1rem;
     line-height: 1;
     width: fit-content;
     display: flex;
-    gap: 3.2rem;
+    gap: 2rem;
     align-items: center;
     color: $color-light-gray;
     text-shadow: 0 0 4px rgba(242, 242, 242, 0.75);
@@ -173,13 +173,13 @@ $font-instrument-serif: "Instrument Serif";
     font-family: $font-bebas-neue, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 10rem;
+    font-size: 6.2rem;
     line-height: 1;
     text-transform: uppercase;
     text-align: center;
   }
   .hero__card__initial__footer {
-    font-size: 2rem;
+    font-size: 1rem;
     line-height: 1;
 
     span {

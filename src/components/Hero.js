@@ -43,9 +43,9 @@ const Hero = () => {
 
         <div className="hero__card__initial" data-3d-hover-inner="layer-1">
           <div className="hero__card__initial__header">SEE RECAP</div>
-          <div className="hero__card__initial__main font-bebas">2025</div>
+          <div className="hero__card__initial__main font-bebas initial_to_hide">2025</div>
           <div className="hero__card__initial__footer">
-            <span className="fs-instrument text-white instrument">(→)</span>
+            <span className="fs-instrument text-white instrument">(Scroll Down)</span>
           </div>
         </div>
 
