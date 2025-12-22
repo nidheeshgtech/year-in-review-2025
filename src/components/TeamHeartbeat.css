@@ -1,0 +1,107 @@
+.team-heartbeat-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+}
+.team-heartbeat-section .team-heartbeat-title-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 180px;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .team-heartbeat-section .team-heartbeat-title-container {
+    padding-top: 60px;
+  }
+}
+.team-heartbeat-section .team-subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.team-heartbeat-section .team-subtitle .team-bullet {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  display: inline-block;
+}
+@media (max-width: 768px) {
+  .team-heartbeat-section .team-subtitle {
+    font-size: 12px;
+    letter-spacing: 2px;
+    gap: 10px;
+  }
+}
+.team-heartbeat-section .team-title {
+  font-size: 121px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 0;
+  line-height: 1.1;
+}
+@media (min-width: 1920px) {
+  .team-heartbeat-section .team-title {
+    font-size: 150px;
+  }
+}
+@media (max-width: 1024px) {
+  .team-heartbeat-section .team-title {
+    font-size: 80px;
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 768px) {
+  .team-heartbeat-section .team-title {
+    font-size: 50px;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 480px) {
+  .team-heartbeat-section .team-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+}
+.team-heartbeat-section .matter-scene {
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+.team-heartbeat-section .matter-scene * {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.team-heartbeat-section .matter-scene canvas {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-right: none !important;
+  border-left: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}

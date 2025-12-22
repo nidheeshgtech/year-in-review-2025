@@ -1,0 +1,42 @@
+.menu-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: transparent;
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+.menu-nav .container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+@media (min-width: 2000px) {
+  .menu-nav .container {
+    max-width: 1920px;
+  }
+}
+.menu-nav .menu-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+.menu-nav .menu-year-review {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.menu-nav .menu-year-review span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .menu-nav .menu-year-review span {
+    font-size: 12px;
+  }
+  .menu-nav .menu-logo img {
+    height: 32px;
+  }
+}

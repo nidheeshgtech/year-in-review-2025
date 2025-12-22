@@ -1,0 +1,112 @@
+.team-heartbeat-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+
+  .team-heartbeat-title-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 180px;
+    pointer-events: none; // Allow clicks to pass through to Matter.js canvas
+
+    @media (max-width: 768px) {
+      padding-top: 0;
+    }
+  }
+
+  // Ensure team-subtitle uses the same font size as defined in general.scss
+  .team-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    .team-bullet {
+      font-size: 8px;
+      color: rgba(255, 255, 255, 0.7);
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+      letter-spacing: 2px;
+      gap: 10px;
+    }
+  }
+
+  // Ensure team-title uses the same font size as defined in general.scss
+  .team-title {
+    font-size: 121px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 0;
+    line-height: 1.1;
+
+
+    @media (min-width: 1920px) {
+      font-size: 150px;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 80px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 56px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 56px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .matter-scene {
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    overflow: hidden;
+
+    * {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    canvas {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      display: block;
+      margin: 0 !important;
+      padding: 0 !important;
+      border-right: none !important;
+      border-left: none !important;
+      border-top: none !important;
+      border-bottom: none !important;
+    }
+  }
+}

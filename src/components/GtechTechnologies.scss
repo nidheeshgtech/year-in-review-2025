@@ -1,0 +1,355 @@
+.gtech-technologies {
+  width: 100%;
+  background-color: #000;
+  padding: 100px 40px;
+  position: relative;
+  // min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+    padding: 80px 30px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+    min-height: auto;
+  }
+
+  @media (max-width: 480px) {
+    padding: 50px 15px  0px 15px;
+  }
+}
+
+.gtech-technologies-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+   @media (min-width: 1700px) {
+    max-width: 1700px;
+   }
+}
+
+.gtech-technologies-header {
+  text-align: center;
+  margin-bottom: 80px;
+  position: sticky;
+  top: 70px;
+  transition: all 
+cubic-bezier(0.39, 0.58, 0.57, 1) 0.5s;
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 20px;
+  }
+  &.gtech-technologies-header--active{
+        filter: blur(4px);
+  }
+}
+
+.gtech-tech-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  font-family: 'Archivo', sans-serif;
+
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+    gap: 10px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 25px;
+    gap: 8px;
+  }
+}
+
+.gtech-tech-dot {
+  color: #fff;
+  font-size: 12px;
+  opacity: 0.8;
+
+  @media (max-width: 480px) {
+    font-size: 10px;
+  }
+}
+
+.gtech-tech-breadcrumb-text {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.9;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+}
+
+.gtech-tech-main-title {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 10px 0;
+
+  @media (max-width: 1024px) {
+    font-size: 64px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 56px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 56px;
+    margin-bottom: 8px;
+  }
+}
+
+.gtech-tech-subtitle {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 30px 0;
+
+  @media (max-width: 1024px) {
+    font-size: 64px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 56px;
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 42px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+}
+
+.gtech-tech-year {
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.gtech-tech-description {
+  font-family: 'Archivo', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+.gtech-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  align-items: start;
+
+  @media (min-width: 1200px) {  
+   max-width: 1200px;
+   margin-left: auto;
+   margin-right: auto;
+
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 25px;
+  }
+}
+
+.gtech-tech-card {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @media (max-width: 768px) {
+    border-radius: 8px;
+  }
+}
+
+.gtech-tech-icon-wrapper {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+
+  @media (max-width: 1024px) {
+    height: 250px;
+  }
+
+  @media (max-width: 768px) {
+    height: 220px;
+  }
+
+  @media (max-width: 480px) {
+    height: 200px;
+  }
+}
+
+.gtech-tech-icon-3d {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    width: 180px;
+    height: 180px;
+  }
+
+  @media (max-width: 768px) {
+    width: 160px;
+    height: 160px;
+    border-radius: 20px;
+  }
+
+  @media (max-width: 480px) {
+    width: 140px;
+    height: 140px;
+    border-radius: 16px;
+  }
+}
+
+.gtech-tech-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+
+  @media (max-width: 1024px) {
+    padding: 18px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px;
+  }
+}
+
+.gtech-tech-content {
+  padding: 40px;
+  background: #1a1a1a;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 1024px) {
+    padding: 35px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 25px;
+  }
+}
+
+.gtech-tech-card-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+
+  @media (max-width: 1024px) {
+    font-size: 42px;
+    margin-bottom: 18px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+}
+
+.gtech-tech-card-description {
+  font-family: 'Archivo', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+
+  @media (max-width: 1024px) {
+    font-size: 17px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
