@@ -1,6 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import afresco from '../images/afresco.webp';
+import ai71 from '../images/ai71.webp';
+import gbc from '../images/gbc.webp';
+import gets from '../images/gets.webp';
+import icom from '../images/icom.webp';
+import yde from '../images/yde.webp';
 import '../general.scss';
 
 // Register GSAP plugin
@@ -210,14 +216,12 @@ const SectionFour = () => {
   }, []);
 
   const projects = [
-    { name: 'ICOM 2025', label: 'Events', description: 'A groundbreaking international conference bringing together industry leaders, innovators, and visionaries to explore the future of technology and business transformation.', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop' },
-    { name: 'ai71', label: 'Events', description: 'An innovative platform showcasing cutting-edge AI solutions and their real-world applications across various industries and sectors.', image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop' },
-    { name: 'Afresco', label: 'Branding', description: 'A fresh and modern brand identity that captures the essence of contemporary design while maintaining timeless elegance and sophistication.', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop' },
-    { name: 'EDGE LODD Touch Screen', label: 'Technology', description: 'Revolutionary touch screen technology designed for seamless user interaction and enhanced digital experiences in modern environments.', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop' },
-    { name: 'Future Health Summit 2026', label: 'Events', description: 'A premier healthcare conference featuring discussions on emerging medical technologies, patient care innovations, and the future of healthcare delivery.', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop' },
-    { name: 'ATRC - Exponential Summit', label: 'Events', description: 'An exclusive summit exploring exponential technologies and their transformative impact on business, society, and human progress.', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop' },
-    { name: 'ATRC - FFCP', label: 'Education', description: 'A comprehensive educational program focused on developing future-ready skills and competencies for the next generation of professionals.', image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop' },
-    { name: 'ATRC - Career Test', label: 'Technology', description: 'An advanced career assessment platform leveraging AI and data analytics to help individuals discover their ideal career paths and opportunities.', image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop' }
+    { name: 'ICOM 2025', label: 'Events', description: 'A groundbreaking international conference bringing together industry leaders, innovators, and visionaries to explore the future of technology and business transformation.', image: icom },
+    { name: 'ai71', label: 'Events', description: 'An innovative platform showcasing cutting-edge AI solutions and their real-world applications across various industries and sectors.', image: ai71 },
+    { name: 'Afresco', label: 'Branding', description: 'A fresh and modern brand identity that captures the essence of contemporary design while maintaining timeless elegance and sophistication.', image: afresco },
+    { name: 'GBC', label: 'Technology', description: 'Revolutionary touch screen technology designed for seamless user interaction and enhanced digital experiences in modern environments.', image: gbc },
+    { name: 'GETS', label: 'Events', description: 'A premier healthcare conference featuring discussions on emerging medical technologies, patient care innovations, and the future of healthcare delivery.', image: gets },
+    { name: 'YDE', label: 'Events', description: 'An exclusive summit exploring exponential technologies and their transformative impact on business, society, and human progress.', image: yde }
   ];
 
   useEffect(() => {
