@@ -811,7 +811,7 @@ img {
     }
 
     .project-name {
-      font-size: 48px;
+      font-size: 38px;
       font-weight: 500;
       letter-spacing: 1px;
       color: rgba(255, 255, 255, 0.9);
@@ -917,12 +917,64 @@ img {
     }
 
     .project-arrow {
+      font-family: 'Archivo', sans-serif;
       font-size: 24px;
-      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 1px;
       opacity: 0;
       will-change: transform, opacity;
       flex-shrink: 0;
       margin-left: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      cursor: pointer;
+      background: linear-gradient(
+        90deg,
+        #fff 0%,
+        #fff 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 100% 100%;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  background-size 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        transform: translateX(10px);
+        background: linear-gradient(
+          90deg,
+          #3C4BBE 0%,
+          #6366f1 20%,
+          #6877A8 40%,
+          #7677BA 50%,
+          #DD3741 60%,
+          #E74351 80%,
+          #CE2F2F 100%
+        );
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient-text-flow 3s ease infinite;
+      }
+
+      // Fallback for browsers that don't support background-clip
+      @supports not (-webkit-background-clip: text) {
+        -webkit-text-fill-color: #fff;
+        background: none;
+        
+        &:hover {
+          color: #CE2F2F;
+          background: none;
+          animation: none;
+        }
+      }
 
       @media (max-width: 768px) {
         font-size: 20px;
@@ -1598,6 +1650,7 @@ img {
   padding: 0 20px;
   max-width: 1440px;
   margin: 0 auto;
+  margin-bottom: 50px;
 
   @media (min-width: 1700px) {
     max-width: 1700px;
@@ -2025,7 +2078,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 6px;
   will-change: transform, opacity;
 
   .metrics-bullet {
@@ -2262,6 +2315,109 @@ img {
   }
 }
 
+.recap-audio-toggle {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  color: #fff;
+  padding: 0;
+  outline: none;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  .audio-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &.muted {
+    .audio-icon {
+      transform: rotate(0deg);
+    }
+  }
+
+  &.unmuted {
+    background: linear-gradient(
+      135deg,
+      #3C4BBE 0%,
+      #6366f1 20%,
+      #6877A8 40%,
+      #7677BA 50%,
+      #DD3741 60%,
+      #E74351 80%,
+      #CE2F2F 100%
+    );
+    background-size: 200% 200%;
+    // border-color: rgba(255, 255, 255, 0.1);
+    animation: gradient-text-flow 3s ease infinite;
+
+    .audio-icon {
+      transform: rotate(0deg);
+    }
+
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        #3C4BBE 0%,
+        #6366f1 20%,
+        #6877A8 40%,
+        #7677BA 50%,
+        #DD3741 60%,
+        #E74351 80%,
+        #CE2F2F 100%
+      );
+      background-size: 200% 200%;
+      // border-color: rgba(255, 255, 255, 0.7);
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 48px;
+    height: 48px;
+    bottom: 20px;
+    right: 20px;
+
+    .audio-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 44px;
+    height: 44px;
+    bottom: 15px;
+    right: 15px;
+
+    .audio-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
 
 .recap-section{
   background-color: black;
@@ -2300,5 +2456,208 @@ img {
 }
 
 .banner-text-bold{
-  font-family: 5rem
+  font-size: 5rem;
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+}
+.view-all-projects {
+  margin-top: 50px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #fff 0%,
+    #fff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              background-size 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-10px);
+    text-decoration: underline;
+    background: linear-gradient(
+      90deg,
+      #3C4BBE 0%,
+      #6366f1 20%,
+      #6877A8 40%,
+      #7677BA 50%,
+      #DD3741 60%,
+      #E74351 80%,
+      #CE2F2F 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-text-flow 3s ease infinite;
+  }
+
+  // Fallback for browsers that don't support background-clip
+  @supports not (-webkit-background-clip: text) {
+    -webkit-text-fill-color: #fff;
+    background: none;
+    
+    &:hover {
+      color: #CE2F2F;
+      background: none;
+      animation: none;
+    }
+  }
+
+  a {
+    font-family: 'Archivo', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    background: linear-gradient(
+      90deg,
+      #fff 0%,
+      #fff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                background-size 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(3px);
+      text-decoration: underline;
+      background: linear-gradient(
+        90deg,
+        #3C4BBE 0%,
+        #6366f1 20%,
+        #6877A8 40%,
+        #7677BA 50%,
+        #DD3741 60%,
+        #E74351 80%,
+        #CE2F2F 100%
+      );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient-text-flow 3s ease infinite;
+    }
+
+    // Fallback for browsers that don't support background-clip
+    @supports not (-webkit-background-clip: text) {
+      -webkit-text-fill-color: #fff;
+      background: none;
+      
+      &:hover {
+        color: #CE2F2F;
+        background: none;
+        animation: none;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 42px;
+    
+    a {
+      font-size: 42px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+    justify-content: center;
+    
+    a {
+      font-size: 36px;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    font-size: 32px;
+    gap: 10px;
+    
+    a {
+      font-size: 32px;
+      gap: 10px;
+    }
+  }
+}
+
+.view-show-reel{
+  a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    background: linear-gradient(
+      90deg,
+      #fff 0%,
+      #fff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                background-size 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-4px);
+      background: linear-gradient(
+        90deg,
+        #3C4BBE 0%,
+        #6366f1 20%,
+        #6877A8 40%,
+        #7677BA 50%,
+        #DD3741 60%,
+        #E74351 80%,
+        #CE2F2F 100%
+      );
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient-text-flow 3s ease infinite;
+    }
+
+    // Fallback for browsers that don't support background-clip
+    @supports not (-webkit-background-clip: text) {
+      -webkit-text-fill-color: #fff;
+      background: none;
+      
+      &:hover {
+        color: #CE2F2F;
+        background: none;
+        animation: none;
+      }
+    }
+  }
 }

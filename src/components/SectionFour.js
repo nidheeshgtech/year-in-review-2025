@@ -1017,11 +1017,11 @@ const SectionFour = () => {
       
       <h2 className="projects-title font-bebas" ref={titleRef}>
         SHAPING TOMORROW<br />
-        <span className="instrument">(#1)</span> ONE PROJECT A AT TIME
+        <span className="instrument">(#1)</span>PROJECT A AT TIME
       </h2>
       
       <p className="projects-description" ref={descriptionRef}>
-        We delivered impactful design solutions that garnered acclaim by working with a mix of great brands, utilising our design-driven approach to redefine what's possible.
+      We delivered impactful design solutions that garnered acclaim by working with a mix of great brands, utilising our design-driven approach to redefine what’s possible.
       </p>
       
       <div className="projects-list" ref={projectsListRef}>
@@ -1033,10 +1033,15 @@ const SectionFour = () => {
               <div className="project-name-wrapper">
                 <div className="project-name">{project.name}</div>
               </div>
-              <div className="project-arrow">(→)</div>
+              <div className="project-arrow">View All Projects</div>
             </div>
           </div>
         ))}
+      </div>
+      <div className="projects-button view-all-projects">
+       <a href="https://www.gtechme.com/portfolio/" target="_blank">View All Projects
+       <span className="project-arrow instrument" >(→)</span>
+       </a>
       </div>
 
       {/* Hover Image */}

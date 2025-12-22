@@ -208,7 +208,7 @@ const TeamHeartbeat = () => {
     const getCanvasHeight = () => {
       // Mobile: 500px, Desktop: window.innerHeight
       const isMobile = window.innerWidth < 768;
-      return isMobile ? 600 : 1200;
+      return isMobile ? 500 : 1000;
     };
 
     // Create a renderer with higher quality settings

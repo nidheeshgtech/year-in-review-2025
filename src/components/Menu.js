@@ -13,7 +13,8 @@ const Menu = () => {
             </div>
           </div>
           <div className="col-6 col-md-6">
-            <div className="menu-year-review">
+            <div className="menu-year-review gap-10">
+              {/* <span className="view-show-reel"><a href="https://www.gtechme.com/show-reel/" target="_blank">View Show Reel</a></span> */}
               <span>2025 Year in Review</span>
             </div>
           </div>

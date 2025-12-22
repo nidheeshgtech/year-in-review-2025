@@ -882,7 +882,7 @@ const Footer = () => {
       <div className="footer-social-section">
         <div className="footer-social-grid" ref={socialBlocksRef}>
           <a 
-            href="https://instagram.com" 
+            href="https://www.instagram.com/gtechdigital/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="footer-social-block"
@@ -894,7 +894,7 @@ const Footer = () => {
           </a>
 
           <a 
-            href="https://linkedin.com" 
+            href="https://www.linkedin.com/company/gtech-information-technology/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="footer-social-block"
@@ -906,7 +906,7 @@ const Footer = () => {
           </a>
 
           <a 
-            href="mailto:gtech@gmail.com" 
+            href="mailto:hello@gtechme.com" 
             className="footer-social-block"
           >
             <div className="footer-social-icon">
@@ -916,7 +916,7 @@ const Footer = () => {
           </a>
 
           <a 
-            href="#contact" 
+            href="https://www.gtechme.com/contact/" target='_blank' 
             className="footer-social-block"
           >
             <div className="footer-social-icon">
@@ -931,10 +931,10 @@ const Footer = () => {
       <div className="footer-bottom-section" ref={bottomSectionRef}>
         <div className="footer-bottom-content">
           <div className="footer-contact-info">
-            <a href="mailto:gtech@gmail.com" className="footer-contact-link">
-              gtech@gmail.com
+            <a href="mailto:hello@gtechme.com" className="footer-contact-link">
+              hello@gtechme.com
             </a>
-            <a href="tel:+46332443545355" className="footer-contact-link">
+            <a href="tel:+97143285071" className="footer-contact-link">
               +971 4 328 5071
             </a>
           </div>
@@ -944,9 +944,9 @@ const Footer = () => {
           </div>
 
           <div className="footer-links">
-            <a href="#contact" className="footer-link">Contact</a>
+            <a href="https://www.gtechme.com/terms-of-use/" target="_blank" className="footer-link">Terms of Use</a>
             <span className="footer-link-separator">/</span>
-            <a href="#privacy" className="footer-link">Privacy Policy</a>
+            <a href="https://www.gtechme.com/privacy-policy/" target="_blank" className="footer-link">Privacy Policy</a>
           </div>
         </div>
       </div>
