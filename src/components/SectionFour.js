@@ -219,7 +219,7 @@ const SectionFour = () => {
     { name: 'ICOM 2025', label: 'Events', description: 'A groundbreaking international conference bringing together industry leaders, innovators, and visionaries to explore the future of technology and business transformation.', image: icom },
     { name: 'ai71', label: 'Events', description: 'An innovative platform showcasing cutting-edge AI solutions and their real-world applications across various industries and sectors.', image: ai71 },
     { name: 'Afresco', label: 'Branding', description: 'A fresh and modern brand identity that captures the essence of contemporary design while maintaining timeless elegance and sophistication.', image: afresco },
-    { name: 'GBC', label: 'Technology', description: 'Revolutionary touch screen technology designed for seamless user interaction and enhanced digital experiences in modern environments.', image: gbc },
+    { name: 'Gender Balance Council UAE', label: 'Technology', description: 'Revolutionary touch screen technology designed for seamless user interaction and enhanced digital experiences in modern environments.', image: gbc },
     { name: 'GETS', label: 'Events', description: 'A premier healthcare conference featuring discussions on emerging medical technologies, patient care innovations, and the future of healthcare delivery.', image: gets },
     { name: 'YDE', label: 'Events', description: 'An exclusive summit exploring exponential technologies and their transformative impact on business, society, and human progress.', image: yde }
   ];

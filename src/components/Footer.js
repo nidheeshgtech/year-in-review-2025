@@ -935,7 +935,7 @@ const Footer = () => {
               gtech@gmail.com
             </a>
             <a href="tel:+46332443545355" className="footer-contact-link">
-              (+463) 3244 354 5355
+              +971 4 328 5071
             </a>
           </div>
 

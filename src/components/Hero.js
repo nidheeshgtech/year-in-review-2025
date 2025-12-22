@@ -50,9 +50,9 @@ const Hero = () => {
         </div>
 
         <div className="hero__card__content">
-          <h1>A year of groundbreaking innovation and technological advancement that reshaped our industry.</h1>
-          <h1>We pushed boundaries, broke records, and delivered solutions that transformed businesses worldwide.</h1>
-          <h1>Together, we built a foundation for the future—one project, one partnership, one success at a time.</h1>
+          <h1>This was the year we made good on our promise to "crush 2025".</h1>
+          <h1> Fueled by the continued "hustle, heart, and high-fives", this year witnessed us scaling our ambition and achieving exponential impact across every vertical.</h1>
+          <h1>From Big Wins to <span className="bebas-neue banner-text-bold">Bold Moves</span>, we lived up to our commitment to Endless Innovation.</h1>
 
           <div className="hero__card__content__button">
             <div className="scroll-text instrument">Scroll down</div>

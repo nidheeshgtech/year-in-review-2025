@@ -79,11 +79,17 @@ $font-instrument-serif: "Instrument Serif";
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     color: $color-light-gray;
     font-family: $font-archivo, sans-serif;
     font-weight: 400;
     font-style: normal;
+
+    @media (min-width: 1920px) {
+      font-size:4.4rem;
+    }
+
+
     @media (max-width: 768px) {
       font-size: 1.3rem;
     }
@@ -229,4 +235,10 @@ $font-instrument-serif: "Instrument Serif";
     transform: rotate(90deg);
     display: block;
   }
+}
+
+.bebas-neue {
+  font-family: $font-bebas-neue, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
