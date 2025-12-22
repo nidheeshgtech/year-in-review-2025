@@ -205,7 +205,11 @@ const TeamHeartbeat = () => {
     // Calculate canvas width with max-width constraint
     const MAX_WIDTH = 1440;
     const getCanvasWidth = () => Math.min(window.innerWidth, MAX_WIDTH);
-    const getCanvasHeight = () => window.innerHeight;
+    const getCanvasHeight = () => {
+      // Mobile: 500px, Desktop: window.innerHeight
+      const isMobile = window.innerWidth < 768;
+      return isMobile ? 600 : window.innerHeight;
+    };
 
     // Create a renderer with higher quality settings
     const render = Render.create({
@@ -249,6 +253,14 @@ const TeamHeartbeat = () => {
     canvas.style.boxShadow = 'none';
     canvas.style.margin = '0';
     canvas.style.padding = '0';
+    
+    // Allow vertical scrolling on mobile
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      canvas.style.touchAction = 'pan-y';
+      canvas.style.pointerEvents = 'auto';
+    }
+    
     canvas.setAttribute('style', canvas.getAttribute('style') + '; border: none !important; border-right: none !important;');
 
     // Get current canvas dimensions
@@ -554,6 +566,15 @@ const TeamHeartbeat = () => {
       const ctx = render.canvas.getContext('2d');
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = 'high';
+      
+      // Re-apply touch-action for mobile scrolling
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
+        render.canvas.style.touchAction = 'pan-y';
+        render.canvas.style.pointerEvents = 'auto';
+      } else {
+        render.canvas.style.touchAction = 'auto';
+      }
     };
 
     window.addEventListener('resize', handleResize);

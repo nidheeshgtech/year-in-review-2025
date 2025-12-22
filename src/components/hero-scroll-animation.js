@@ -28,10 +28,13 @@ export function initHeroScrollAnimation(
   let capturedRotationX = null;
   let capturedRotationY = null;
 
+  const isMobile = window.innerWidth < 768;
+  const scrollMultiplier = isMobile ? 5 : 10;
+
   const scrollTrigger = ScrollTrigger.create({
     trigger: ".hero",
     start: "top top",
-    end: `+=${window.innerHeight * 10}px`,
+    end: `+=${window.innerHeight * scrollMultiplier}px`,
     pin: true,
     pinSpacing: true,
     scrub: 1,
@@ -77,8 +80,8 @@ export function initHeroScrollAnimation(
       const remToPx = parseFloat(
         getComputedStyle(document.documentElement).fontSize
       );
-      const initialWidth = 24.7 * remToPx;
-      const initialHeight = 43.4 * remToPx;
+      const initialWidth = `${isMobile ? 18 : 24.7}` * remToPx;
+      const initialHeight = `${isMobile ? 28 : 43.4}` * remToPx;
       const finalWidth = window.innerWidth;
       const finalHeight = window.innerHeight;
 

@@ -5,6 +5,10 @@
   overflow: hidden;
   background: #000000;
 
+  @media (max-width: 768px) {
+    height: 600px;
+  }
+
   .team-heartbeat-title-container {
     position: absolute;
     top: 0;
@@ -89,6 +93,10 @@
     outline: none !important;
     box-shadow: none !important;
     overflow: hidden;
+    
+    @media (max-width: 768px) {
+      touch-action: pan-y; // Allow vertical scrolling on mobile
+    }
 
     * {
       border: none !important;
@@ -107,6 +115,11 @@
       border-left: none !important;
       border-top: none !important;
       border-bottom: none !important;
+      
+      @media (max-width: 768px) {
+        touch-action: pan-y; // Allow vertical scrolling on mobile
+        pointer-events: auto; // Keep pointer events for Matter.js
+      }
     }
   }
 }
