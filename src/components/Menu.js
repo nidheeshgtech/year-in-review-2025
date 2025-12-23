@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import gtechLogo from '../images/gtech-logo.svg';
+import recapIcon from '../images/recap.svg';
 import './Menu.scss';
 
 const Menu = () => {
@@ -25,9 +26,7 @@ const Menu = () => {
           </div>
           <div className="col-6 col-md-6">
             <div className="menu-year-review gap-10">
-              <span className="view-show-reel">
-                <a href="#section7" onClick={handleOpenShowReel}>View Show Reel</a>
-              </span>
+              
               <span>2025 Year in Review</span>
             </div>
           </div>

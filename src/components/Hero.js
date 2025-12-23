@@ -1,14 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { init3dPerspectiveHover } from './perspective';
 import recapBg from '../images/hero-bg.jpg';
+import recapIcon from '../images/recap.svg';
 import { initHeroScrollAnimation } from './hero-scroll-animation';
 import './hero.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
+  const [showReelOpen, setShowReelOpen] = useState(false);
+
+  const handleOpenShowReel = (e) => {
+    e.preventDefault();
+    setShowReelOpen(true);
+  };
+
+  const handleCloseShowReel = () => {
+    setShowReelOpen(false);
+  };
+
   useEffect(() => {
     const destroyHover = init3dPerspectiveHover();
     const cleanup = initHeroScrollAnimation(destroyHover, init3dPerspectiveHover);
@@ -21,6 +33,14 @@ const Hero = () => {
 
   return (
     <section className="hero section">
+      
+      <span className="view-show-reel">
+        <a href="#section7" onClick={handleOpenShowReel}>
+          <span className="instrument">2025 Recap</span>
+          <img src={recapIcon} alt="View Show Reel" />
+        </a>
+      </span>
+      
       <div className="hero__intro__text__container text-white">
         <div className="hero__intro__text hero__intro__text--left">Defining the Future</div>
         <div className="hero__intro__text hero__intro__text--right instrument">
@@ -62,6 +82,32 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {showReelOpen && (
+        <div className="showreel-modal">
+          <div className="showreel-backdrop" onClick={handleCloseShowReel} />
+          <div className="showreel-content">
+            <button
+              className="showreel-close"
+              aria-label="Close show reel"
+              onClick={handleCloseShowReel}
+            >
+              ✕
+            </button>
+            <div className="showreel-video-wrapper">
+              <iframe
+                src="https://player.vimeo.com/video/1148749117?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="2025-Year-End-Review"
+                className="showreel-iframe"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
