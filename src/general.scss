@@ -742,7 +742,11 @@ img {
       margin: 0 auto;
       position: relative;
       z-index: 1;
-    
+      text-decoration: none;
+      color: #fff;
+      &:hover {
+        text-decoration: none;
+      }
     }
 
     .project-label {
@@ -2586,8 +2590,9 @@ img {
   }
 
   @media (max-width: 768px) {
-    font-size: 36px;
+    font-size: 16px;
     justify-content: center;
+    margin-top: 20px;
     
     a {
       font-size: 36px;
@@ -2598,9 +2603,10 @@ img {
   @media (max-width: 480px) {
     font-size: 32px;
     gap: 10px;
+    margin-top: 20px;
     
     a {
-      font-size: 32px;
+      font-size: 16px;
       gap: 10px;
     }
   }

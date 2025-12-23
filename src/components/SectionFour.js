@@ -216,12 +216,12 @@ const SectionFour = () => {
   }, []);
 
   const projects = [
-    { name: 'ICOM 2025', label: 'Events', description: 'A groundbreaking international conference bringing together industry leaders, innovators, and visionaries to explore the future of technology and business transformation.', image: icom },
-    { name: 'ai71', label: 'Events', description: 'An innovative platform showcasing cutting-edge AI solutions and their real-world applications across various industries and sectors.', image: ai71 },
-    { name: 'Afresco', label: 'Branding', description: 'A fresh and modern brand identity that captures the essence of contemporary design while maintaining timeless elegance and sophistication.', image: afresco },
-    { name: 'Gender Balance Council UAE', label: 'Technology', description: 'Revolutionary touch screen technology designed for seamless user interaction and enhanced digital experiences in modern environments.', image: gbc },
-    { name: 'GETS', label: 'Events', description: 'A premier healthcare conference featuring discussions on emerging medical technologies, patient care innovations, and the future of healthcare delivery.', image: gets },
-    { name: 'YDE', label: 'Events', description: 'An exclusive summit exploring exponential technologies and their transformative impact on business, society, and human progress.', image: yde }
+    { name: 'ICOM 2025', label: 'Events', description: '', image: icom, link: 'https://dubai2025.icom.museum/' },
+    { name: 'ai71', label: 'Events', description: '', image: ai71, link: 'https://ai71.ai/' },
+    { name: 'Afresco', label: 'Branding', description: '', image: afresco, link: 'https://afresco.com/' },
+    { name: 'Gender Balance Council UAE', label: '', image: gbc, link: 'https://pledge.gbc.gov.ae/' },
+    { name: 'GETS', label: 'Events', description: '', image: gets, link:'https://gets.ae/' },
+    { name: 'Yellow Door Energy', label: 'Events', description: '', image: yde, link:'https://yellowdoorenergy.com/' }
   ];
 
   useEffect(() => {
@@ -1028,13 +1028,13 @@ const SectionFour = () => {
         {projects.map((project, index) => (
           <div key={index} className="project-item reveal-global">
             <div className="project-line"></div>
-            <div className="project-content">
+            <a href={project.link} target="_blank" className="project-content">
               <div className="project-label">{project.label}</div>
               <div className="project-name-wrapper">
                 <div className="project-name">{project.name}</div>
               </div>
               <div className="project-arrow">View All Projects</div>
-            </div>
+            </a>
           </div>
         ))}
       </div>
