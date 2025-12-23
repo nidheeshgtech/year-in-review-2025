@@ -2474,7 +2474,7 @@ img {
   font-size: 30px;
   font-weight: 400;
   color: #fff;
-  text-decoration: none;
+  text-decoration: none !important;
   letter-spacing: 1px;
   display: inline-flex;
   align-items: center;
@@ -2495,7 +2495,7 @@ img {
 
   &:hover {
     transform: translateY(-10px);
-    text-decoration: underline;
+    text-decoration: none !important;
     background: linear-gradient(
       90deg,
       #3C4BBE 0%,
@@ -2550,7 +2550,7 @@ img {
 
     &:hover {
       transform: translateY(3px);
-      text-decoration: underline;
+      text-decoration: none !important;
       background: linear-gradient(
         90deg,
         #3C4BBE 0%,
