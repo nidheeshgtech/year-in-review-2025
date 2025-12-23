@@ -1,9 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
 import gtech01 from '../images/gtech_01.webp';
 import gtech02 from '../images/gtech_02.webp';
 import gtech03 from '../images/gtech_03.webp';
@@ -20,32 +17,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SectionThree = () => {
   const sectionRef = useRef(null);
-  const image1Ref = useRef(null);
-  const image2Ref = useRef(null);
-  const image3Ref = useRef(null);
-  const image4Ref = useRef(null);
-  const image5Ref = useRef(null);
-  const image6Ref = useRef(null);
-  const image7Ref = useRef(null);
-  const image8Ref = useRef(null);
-  const image9Ref = useRef(null);
   const titleRef = useRef(null);
-  const swiperRef = useRef(null);
+  const marqueeRef = useRef(null);
+  const trackRef = useRef(null);
+
+  const images = [
+    { src: gtech01, alt: 'GTECH image 1', size: 'large' },
+    { src: gtech02, alt: 'GTECH image 2', size: 'medium' },
+    { src: gtech03, alt: 'GTECH image 3', size: 'small' },
+    { src: gtech04, alt: 'GTECH image 4', size: 'small' },
+    { src: gtech05, alt: 'GTECH image 5', size: 'large' },
+    { src: gtech06, alt: 'GTECH image 6', size: 'medium' },
+    { src: gtech07, alt: 'GTECH image 7', size: 'medium' },
+    { src: gtech08, alt: 'GTECH image 8', size: 'small' },
+    { src: gtech09, alt: 'GTECH image 9', size: 'large' },
+  ];
 
   useEffect(() => {
     const section = sectionRef.current;
-    const image1 = image1Ref.current;
-    const image2 = image2Ref.current;
-    const image3 = image3Ref.current;
-    const image4 = image4Ref.current;
-    const image5 = image5Ref.current;
-    const image6 = image6Ref.current;
-    const image7 = image7Ref.current;
-    const image8 = image8Ref.current;
-    const image9 = image9Ref.current;
     const title = titleRef.current;
+    const track = trackRef.current;
 
-    if (!section || !title) return;
+    if (!section || !title || !track) return;
 
     gsap.set(title, {
       opacity: 0,
@@ -179,16 +172,29 @@ const SectionThree = () => {
     };
   }, []);
 
-  // Ensure swiper starts immediately when ready
+  // Infinite marquee scroll for images
   useEffect(() => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      const swiper = swiperRef.current.swiper;
-      // Start autoplay immediately
-      if (!swiper.autoplay.running) {
-        swiper.autoplay.start();
+    const track = trackRef.current;
+    if (!track) return;
+
+    const totalWidth = track.scrollWidth / 2; // because we duplicate the set
+
+    gsap.fromTo(
+      track,
+      { x: 0 },
+      {
+        x: -totalWidth,
+        duration: 25,
+        ease: 'none',
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize((x) => parseFloat(x) % -totalWidth)
+        }
       }
-    }
-  }, []);
+    );
+
+    return () => gsap.killTweensOf(track);
+  }, [images.length]);
 
   return (
     <section 
@@ -201,181 +207,26 @@ const SectionThree = () => {
       </h2> */}
       
       <div className="image-grid-container">
-        <Swiper
-          ref={swiperRef}
-          modules={[Autoplay]}
-          spaceBetween={30}
-          slidesPerView="auto"
-          loop={true}
-          loopAdditionalSlides={3}
-          autoplay={{
-            delay: 1,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false,
-            reverseDirection: false,
-            stopOnLastSlide: false,
-          }}
-          speed={2500}
-          freeMode={false}
-          allowTouchMove={false}
-          watchSlidesProgress={true}
-          className="image-swiper"
-        >
-          {/* All items in one continuous set */}
-          <SwiperSlide className="swiper-slide-image image-card-large">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  ref={image1Ref}
-                  src={gtech01} 
-                  alt="GTECH image 1"
-                  className="reveal-image"
-                />
+        <div className="image-marquee" ref={marqueeRef}>
+          <div className="image-track" ref={trackRef}>
+            {[...images, ...images].map((image, idx) => (
+              <div
+                key={`${image.alt}-${idx}`}
+                className={`marquee-item image-card-${image.size}`}
+              >
+                <div className="image-card">
+                  <div className="image-wrapper">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="reveal-image"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-medium">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  ref={image2Ref}
-                  src={gtech02} 
-                  alt="GTECH image 2"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-small">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  ref={image3Ref}
-                  src={gtech03} 
-                  alt="GTECH image 3"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-small">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  ref={image4Ref}
-                  src={gtech04} 
-                  alt="GTECH image 4"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-large">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  ref={image5Ref}
-                  src={gtech05} 
-                  alt="GTECH image 5"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-medium">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  ref={image6Ref}
-                  src={gtech06} 
-                  alt="GTECH image 6"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-medium">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  ref={image7Ref}
-                  src={gtech07} 
-                  alt="GTECH image 7"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-small">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  ref={image8Ref}
-                  src={gtech08} 
-                  alt="GTECH image 8"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-large">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  ref={image9Ref}
-                  src={gtech09} 
-                  alt="GTECH image 9"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          {/* Duplicate first few slides for seamless loop */}
-          <SwiperSlide className="swiper-slide-image image-card-large">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  src={gtech01} 
-                  alt="GTECH image 1"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-medium">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  src={gtech02} 
-                  alt="GTECH image 2"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-          
-          <SwiperSlide className="swiper-slide-image image-card-small">
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  src={gtech03} 
-                  alt="GTECH image 3"
-                  className="reveal-image"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        </Swiper>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
