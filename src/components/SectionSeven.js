@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import recapVideo from '../images/recap-video_.mp4';
-import videoPoster from '../images/video-poster.webp';
 
 import '../general.scss';
 
@@ -11,9 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SectionSeven = () => {
   const sectionRef = useRef(null);
-  const videoRef = useRef(null);
+  const iframeRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const buttonRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -147,34 +144,6 @@ const SectionSeven = () => {
     };
   }, []);
 
-  const handleTogglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        videoRef.current.play();
-        setIsPlaying(true);
-      }
-      
-      // Smooth animation for button
-      if (buttonRef.current) {
-        gsap.to(buttonRef.current, {
-          scale: 0.9,
-          duration: 0.1,
-          ease: 'power2.out',
-          onComplete: () => {
-            gsap.to(buttonRef.current, {
-              scale: 1,
-              duration: 0.2,
-              ease: 'power2.out'
-            });
-          }
-        });
-      }
-    }
-  };
-
   return (
     <section 
       id="section7" 
@@ -182,21 +151,26 @@ const SectionSeven = () => {
       ref={sectionRef}
     >
       <div className="recap-video-container">
-        <video
-          ref={videoRef}
+        <iframe
+          ref={iframeRef}
           className="recap-video"
-          loop
-          poster={videoPoster}
-          playsInline
-        >
-          <source src={recapVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          src="https://player.vimeo.com/video/1148749117?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=0&loop=1&muted=0&controls=0&dnt=1"
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="2025-Year-End-Review"
+          allowFullScreen
+        />
         <button
-          ref={buttonRef}
           className={`recap-play-toggle ${isPlaying ? 'playing' : 'paused'}`}
-          onClick={handleTogglePlay}
           aria-label={isPlaying ? 'Pause video' : 'Play video'}
+          onClick={() => {
+            const iframe = iframeRef.current;
+            if (!iframe) return;
+            const action = isPlaying ? 'pause' : 'play';
+            iframe.contentWindow?.postMessage(JSON.stringify({ method: action }), '*');
+            setIsPlaying(!isPlaying);
+          }}
         >
           <svg 
             className="play-icon" 
@@ -207,23 +181,12 @@ const SectionSeven = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             {isPlaying ? (
-              // Pause icon
               <>
-                <path 
-                  d="M6 4H10V20H6V4Z" 
-                  fill="currentColor"
-                />
-                <path 
-                  d="M14 4H18V20H14V4Z" 
-                  fill="currentColor"
-                />
+                <path d="M6 4H10V20H6V4Z" fill="currentColor" />
+                <path d="M14 4H18V20H14V4Z" fill="currentColor" />
               </>
             ) : (
-              // Play icon
-              <path 
-                d="M8 5V19L19 12L8 5Z" 
-                fill="currentColor"
-              />
+              <path d="M8 5V19L19 12L8 5Z" fill="currentColor" />
             )}
           </svg>
         </button>

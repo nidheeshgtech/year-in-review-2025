@@ -1360,38 +1360,7 @@ img {
     overflow: hidden;
     border-radius: 12px;
     
-    // Create spotlight effect using pseudo-element - starts from top-right
-    &::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(
-        ellipse at top right,
-        rgba(68, 93, 170, 0.5) 0%,     // #445DAA
-        rgba(216, 53, 72, 0.4) 15%,    // #D83548
-        rgba(68, 93, 170, 0.3) 30%,    // #445DAA
-        rgba(216, 53, 72, 0.2) 50%,    // #D83548
-        rgba(68, 93, 170, 0.1) 70%,    // #445DAA
-        transparent 100%
-      );
-      transform: translate(50%, 50%) scale(0);
-      opacity: 0;
-      pointer-events: none;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                  opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 0;
-      will-change: transform, opacity;
-    }
-
-    // Spotlight scans from top-right to bottom on hover
-    &:hover::before {
-      transform: translate(20%, 80%) scale(1.2);
-      opacity: 1;
-      animation: spotlight-scan 3s ease-in-out infinite;
-    }
+  
 
     // Ensure content stays above spotlight
     .team-stat-title,
@@ -1401,13 +1370,7 @@ img {
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    // Subtle lift effect on hover for content
-    &:hover {
-      .team-stat-title,
-      .team-stat-description {
-        transform: translateY(-2px);
-      }
-    }
+  
   }
 
   // Keyframes for spotlight scanning animation - moves from top-right to bottom

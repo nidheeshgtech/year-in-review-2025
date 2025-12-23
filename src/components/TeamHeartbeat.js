@@ -367,7 +367,7 @@ const TeamHeartbeat = () => {
     const projectManagers = Bodies.rectangle(
       centerX - 200, 
       centerY - 100, 
-      isMobile ? 250 : 300,  // width: 200px mobile, 300px desktop
+      isMobile ? 190 : 300,  // width: 200px mobile, 300px desktop
       isMobile ? 60 : 100,   // height: 60px mobile, 100px desktop
       {
         ...physicsProperties,
@@ -377,7 +377,7 @@ const TeamHeartbeat = () => {
 
     const adminNinjas = Bodies.rectangle(centerX, 
       centerY + 100, 
-      isMobile ? 180 : 220, 
+      isMobile ? 140 : 220, 
       isMobile ? 60 : 100, 
       {
       ...physicsProperties,
@@ -389,28 +389,28 @@ const TeamHeartbeat = () => {
       label: 'SEO GURUS'
     });
 
-    const dearClients = Bodies.rectangle(centerX + 100, centerY - 150, isMobile ? 180 : 240, isMobile ? 60 : 100, {
+    const dearClients = Bodies.rectangle(centerX + 100, centerY - 150, isMobile ? 150 : 240, isMobile ? 60 : 100, {
       ...physicsProperties,
       label: 'DEAR CLIENTS'
     });
 
-    const devs = Bodies.rectangle(centerX - 20, centerY, isMobile ? 120 : 140, isMobile ? 60 : 100, {
+    const devs = Bodies.rectangle(centerX - 20, centerY, isMobile ? 80 : 140, isMobile ? 60 : 100, {
       ...physicsProperties,
       label: 'DEVS'
     });
 
-    const designers = Bodies.rectangle(centerX + 200, centerY - 100, isMobile ? 170 : 220, isMobile ? 60 : 100, {
+    const designers = Bodies.rectangle(centerX + 200, centerY - 100, isMobile ? 120 : 220, isMobile ? 60 : 100, {
       ...physicsProperties,
       label: 'DESIGNERS'
     });
 
-    const marketers = Bodies.rectangle(centerX + 250, centerY + 100, isMobile ? 170 : 230, isMobile ? 60 : 100, {
+    const marketers = Bodies.rectangle(centerX + 250, centerY + 100, isMobile ? 130 : 230, isMobile ? 60 : 100, {
       ...physicsProperties,
       label: 'MARKETERS'
     });
 
     // Create dark blue circular body with arrow - centered
-    const arrowCircleRadius = isMobile ? 60 : 70; // Increased from 50
+    const arrowCircleRadius = isMobile ? 50 : 70; // Increased from 50
     const arrowCircle = Bodies.circle(centerX + 50, centerY, arrowCircleRadius, {
       frictionAir: 0.05, // Reduced air resistance for faster movement
       friction: 0.1,
@@ -485,7 +485,7 @@ const TeamHeartbeat = () => {
           ctx.translate(body.position.x, body.position.y);
           ctx.rotate(body.angle);
           ctx.fillStyle = '#000000';
-          ctx.font = 'bold ' + (isMobile ? '16px' : '22px') + ' Arial, sans-serif';
+          ctx.font = 'bold ' + (isMobile ? '13px' : '22px') + ' Arial, sans-serif';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
           ctx.fillText(body.label, 0, 0);
