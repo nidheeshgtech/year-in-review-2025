@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import recapVideo from '../images/recap-video_.mp4';
+import videoPoster from '../images/video-poster.webp';
 
 import '../general.scss';
 
@@ -11,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const SectionSeven = () => {
   const sectionRef = useRef(null);
   const videoRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -146,11 +147,15 @@ const SectionSeven = () => {
     };
   }, []);
 
-  const handleToggleMute = () => {
+  const handleTogglePlay = () => {
     if (videoRef.current) {
-      const newMutedState = !isMuted;
-      videoRef.current.muted = newMutedState;
-      setIsMuted(newMutedState);
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
       
       // Smooth animation for button
       if (buttonRef.current) {
@@ -180,9 +185,8 @@ const SectionSeven = () => {
         <video
           ref={videoRef}
           className="recap-video"
-          autoPlay
           loop
-          muted={isMuted}
+          poster={videoPoster}
           playsInline
         >
           <source src={recapVideo} type="video/mp4" />
@@ -190,47 +194,36 @@ const SectionSeven = () => {
         </video>
         <button
           ref={buttonRef}
-          className={`recap-audio-toggle ${isMuted ? 'muted' : 'unmuted'}`}
-          onClick={handleToggleMute}
-          aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
+          className={`recap-play-toggle ${isPlaying ? 'playing' : 'paused'}`}
+          onClick={handleTogglePlay}
+          aria-label={isPlaying ? 'Pause video' : 'Play video'}
         >
           <svg 
-            className="audio-icon" 
+            className="play-icon" 
             width="24" 
             height="24" 
             viewBox="0 0 24 24" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
           >
-            {isMuted ? (
-              // Muted icon
+            {isPlaying ? (
+              // Pause icon
               <>
                 <path 
-                  d="M11 5L6 9H2V15H6L11 19V5Z" 
+                  d="M6 4H10V20H6V4Z" 
                   fill="currentColor"
                 />
                 <path 
-                  d="M23 9L17 15M17 9L23 15" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round"
+                  d="M14 4H18V20H14V4Z" 
+                  fill="currentColor"
                 />
               </>
             ) : (
-              // Unmuted icon
-              <>
-                <path 
-                  d="M11 5L6 9H2V15H6L11 19V5Z" 
-                  fill="currentColor"
-                />
-                <path 
-                  d="M19.07 4.93C20.9447 6.80528 21.9979 9.34835 21.9979 12C21.9979 14.6517 20.9447 17.1947 19.07 19.07M15.54 8.46C16.4774 9.39764 17.0039 10.6692 17.0039 12C17.0039 13.3308 16.4774 14.6024 15.54 15.54" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </>
+              // Play icon
+              <path 
+                d="M8 5V19L19 12L8 5Z" 
+                fill="currentColor"
+              />
             )}
           </svg>
         </button>

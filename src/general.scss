@@ -2302,6 +2302,7 @@ img {
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
     height: 40vh;
@@ -2319,29 +2320,29 @@ img {
   }
 }
 
-.recap-audio-toggle {
+.recap-play-toggle {
   position: absolute;
   bottom: 30px;
   right: 30px;
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(0, 0, 0, 0.019);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 10;
-  color: #fff;
+  color: #000;
   padding: 0;
   outline: none;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.8);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 1);
     transform: scale(1.05);
   }
 
@@ -2349,19 +2350,19 @@ img {
     transform: scale(0.95);
   }
 
-  .audio-icon {
+  .play-icon {
     width: 24px;
     height: 24px;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  &.muted {
-    .audio-icon {
+  &.paused {
+    .play-icon {
       transform: rotate(0deg);
     }
   }
 
-  &.unmuted {
+  &.playing {
     background: linear-gradient(
       135deg,
       #3C4BBE 0%,
@@ -2373,10 +2374,10 @@ img {
       #CE2F2F 100%
     );
     background-size: 200% 200%;
-    // border-color: rgba(255, 255, 255, 0.1);
     animation: gradient-text-flow 3s ease infinite;
+    color: #fff;
 
-    .audio-icon {
+    .play-icon {
       transform: rotate(0deg);
     }
 
@@ -2392,7 +2393,6 @@ img {
         #CE2F2F 100%
       );
       background-size: 200% 200%;
-      // border-color: rgba(255, 255, 255, 0.7);
       transform: scale(1.05);
     }
   }
@@ -2403,7 +2403,7 @@ img {
     bottom: 20px;
     right: 20px;
 
-    .audio-icon {
+    .play-icon {
       width: 20px;
       height: 20px;
     }
@@ -2415,7 +2415,7 @@ img {
     bottom: 15px;
     right: 15px;
 
-    .audio-icon {
+    .play-icon {
       width: 18px;
       height: 18px;
     }
@@ -2666,4 +2666,8 @@ img {
       }
     }
   }
+  @media (max-width: 768px) {
+    display: none;
+  }
+  
 }

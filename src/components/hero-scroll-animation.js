@@ -80,8 +80,20 @@ export function initHeroScrollAnimation(
       const remToPx = parseFloat(
         getComputedStyle(document.documentElement).fontSize
       );
-      const initialWidth = `${isMobile ? 18 : 24.7}` * remToPx;
-      const initialHeight = `${isMobile ? 28 : 43.4}` * remToPx;
+      const screenWidth = window.innerWidth;
+      const isMediumScreen = screenWidth >= 1200 && screenWidth <= 1600;
+      
+      let initialWidth, initialHeight;
+      if (isMobile) {
+        initialWidth = 18 * remToPx;
+        initialHeight = 25 * remToPx;
+      } else if (isMediumScreen) {
+        initialWidth = 20.7 * remToPx;
+        initialHeight = 33.4 * remToPx;
+      } else {
+        initialWidth = 24.7 * remToPx;
+        initialHeight = 43.4 * remToPx;
+      }
       const finalWidth = window.innerWidth;
       const finalHeight = window.innerHeight;
 
@@ -120,9 +132,11 @@ export function initHeroScrollAnimation(
         const offsetDistance = 5 * remToPx; // 13rem from card edge
         const cardHalfWidth = currentWidth / 2;
         const moveDistance = window.innerWidth * 0.1;
+        const screenWidth = window.innerWidth;
+        const additionalOffset = (screenWidth >= 1200 && screenWidth <= 1600) ? 200 : 0;
 
         gsap.set(heroIntroTextElements[0], {
-          x: -(cardHalfWidth + offsetDistance) - textProgress * moveDistance,
+          x: -(cardHalfWidth + offsetDistance) - textProgress * moveDistance + additionalOffset,
           opacity: 1 - textProgress,
         });
 

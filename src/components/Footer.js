@@ -707,7 +707,26 @@ const Footer = () => {
       } else if (node.nodeType === Node.ELEMENT_NODE) {
         if (node.tagName === 'BR') {
           headlineWords.push(node.cloneNode(true));
+        } else if (node.tagName === 'SPAN' && (node.classList.contains('footer-cta-headline-year') || node.classList.contains('instrument') || node.className)) {
+          // Preserve spans with specific classes - wrap their content with reveal-word spans
+          const preservedSpan = node.cloneNode(false); // Clone without children
+          const textContent = node.textContent.trim();
+          if (textContent) {
+            const words = textContent.split(/\s+/);
+            words.forEach((word, wordIndex) => {
+              const revealSpan = document.createElement('span');
+              revealSpan.className = 'reveal-word';
+              revealSpan.textContent = word;
+              preservedSpan.appendChild(revealSpan);
+              // Add space between words inside the preserved span
+              if (wordIndex < words.length - 1) {
+                preservedSpan.appendChild(document.createTextNode(' '));
+              }
+            });
+          }
+          headlineWords.push(preservedSpan);
         } else {
+          // For other elements, process their children
           Array.from(node.childNodes).forEach(child => processHeadlineNode(child));
         }
       }
@@ -717,8 +736,16 @@ const Footer = () => {
     headlineElement.innerHTML = '';
     headlineWords.forEach((word, index) => {
       headlineElement.appendChild(word);
-      if (index < headlineWords.length - 1 && word.nodeType !== Node.ELEMENT_NODE && headlineWords[index + 1]?.nodeType !== Node.ELEMENT_NODE) {
-        headlineElement.appendChild(document.createTextNode(' '));
+      // Add space between word spans, but not before BR tags
+      if (index < headlineWords.length - 1) {
+        const nextWord = headlineWords[index + 1];
+        const isCurrentWordSpan = word.classList && word.classList.contains('reveal-word');
+        const isNextWordSpan = nextWord.classList && nextWord.classList.contains('reveal-word');
+        const isNextBR = nextWord.tagName === 'BR';
+        
+        if (isCurrentWordSpan && isNextWordSpan && !isNextBR) {
+          headlineElement.appendChild(document.createTextNode(' '));
+        }
       }
     });
     const headlineWordSpans = headlineElement.querySelectorAll('.reveal-word');
@@ -838,7 +865,7 @@ const Footer = () => {
             {/* Left - Headline */}
             <div className="footer-cta-left" ref={headlineRef}>
               <h2 className="footer-cta-headline">
-                ONWARD TO 2026
+                ONWARD TO <span className="footer-cta-headline-year instrument ms-3">2026</span>
                 <br />
                 GROUNDBREAKING
                 <br />
@@ -859,10 +886,10 @@ const Footer = () => {
 
           {/* CTA Links */}
           <div className="footer-cta-links" ref={ctaLinksRef}>
-            <a href="#join" className="footer-cta-link">
+            <a href="mailto:gtech@jobs.workable.com" className="footer-cta-link">
               Join the Team <span className="footer-cta-arrow instrument">(→)</span>
             </a>
-            <a href="#contact" className="footer-cta-link">
+            <a href="https://www.gtechme.com/contact/" target="_blank" className="footer-cta-link">
               Get in Touch <span className="footer-cta-arrow instrument">(→)</span>
             </a>
           </div>
