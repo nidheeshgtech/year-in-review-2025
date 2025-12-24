@@ -214,19 +214,19 @@ const SectionThree = () => {
                 key={`${image.alt}-${idx}`}
                 className={`marquee-item image-card-${image.size}`}
               >
-                <div className="image-card">
-                  <div className="image-wrapper">
-                    <img
+            <div className="image-card">
+              <div className="image-wrapper">
+                <img 
                       src={image.src}
                       alt={image.alt}
-                      className="reveal-image"
-                    />
-                  </div>
-                </div>
+                  className="reveal-image"
+                />
+              </div>
+            </div>
               </div>
             ))}
-          </div>
-        </div>
+              </div>
+            </div>
       </div>
     </section>
   );

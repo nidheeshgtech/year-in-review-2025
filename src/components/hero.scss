@@ -41,6 +41,18 @@ $font-instrument-serif: "Instrument Serif";
   will-change: transform;
   overflow: hidden;
 
+  &::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #00000024;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+  }
+
   img {
     height: 100%;
     left: 0;

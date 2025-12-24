@@ -2,12 +2,38 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../general.scss';
-import logo1 from '../images/logo_1.webp';
-import logo2 from '../images/logo_2.webp';
-import logo3 from '../images/logo_3.webp';
-import logo4 from '../images/logo_4.webp';
-import logo5 from '../images/logo_5.webp';
-import logo6 from '../images/logo_6.webp';
+import logo1 from '../images/Logo-1.svg';
+import logo2 from '../images/Logo-2.svg';
+import logo3 from '../images/Logo-3.svg';
+import logo4 from '../images/Logo-4.svg';
+import logo5 from '../images/Logo-5.svg';
+import logo6 from '../images/Logo-6.svg';
+import logo7 from '../images/Logo-7.svg';
+import logo8 from '../images/Logo-8.svg';
+import logo9 from '../images/Logo-9.svg';
+import logo10 from '../images/Logo-10.svg';
+import logo11 from '../images/Logo-11.svg';
+import logo12 from '../images/Logo-12.svg';
+import logo13 from '../images/Logo-13.svg';
+import logo14 from '../images/Logo-14.svg';
+import logo15 from '../images/Logo-15.svg';
+import logo16 from '../images/Logo-16.svg';
+import logo17 from '../images/Logo-17.svg';
+import logo18 from '../images/Logo-18.svg';
+import logo19 from '../images/Logo-19.svg';
+import logo20 from '../images/Logo-20.svg';
+import logo21 from '../images/Logo-21.svg';
+import logo22 from '../images/Logo-22.svg';
+import logo23 from '../images/Logo-23.svg';
+import logo24 from '../images/Logo-24.svg';
+import logo25 from '../images/Logo-25.svg';
+import logo26 from '../images/Logo-26.svg';
+import logo27 from '../images/Logo-27.svg';
+import logo28 from '../images/Logo-28.svg';
+import logo29 from '../images/Logo-29.svg';
+import logo30 from '../images/Logo-30.svg';
+import logo31 from '../images/Logo-31.svg';
+import logo32 from '../images/Logo-32.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -175,18 +201,70 @@ const CorporateSection = () => {
   }, []);
 
   const logos = [
-    { name: 'ICOM Dubai 2025', image: logo1 },
-    { name: 'AFRESCO', image: logo2 },
-    { name: 'Steer', image: logo3 },
-    { name: 'ICOM Dubai 2025', image: logo4 },
-    { name: 'AFRESCO', image: logo5 },
-    { name: 'Steer', image: logo6 },
-    { name: 'ICOM Dubai 2025', image: logo1 },
-    { name: 'AFRESCO', image: logo2 },
-    { name: 'Steer', image: logo3 },
-    { name: 'ICOM Dubai 2025', image: logo4 },
-    { name: 'AFRESCO', image: logo5 },
-    { name: 'Steer', image: logo6 },
+    { name: 'Logo 1', image: logo1 },
+    { name: 'Logo 2', image: logo2 },
+    { name: 'Logo 3', image: logo3 },
+    { name: 'Logo 4', image: logo4 },
+    { name: 'Logo 5', image: logo5 },
+    { name: 'Logo 6', image: logo6 },
+    { name: 'Logo 7', image: logo7 },
+    { name: 'Logo 8', image: logo8 },
+    { name: 'Logo 9', image: logo9 },
+    { name: 'Logo 10', image: logo10 },
+    { name: 'Logo 11', image: logo11 },
+    { name: 'Logo 12', image: logo12 },
+    { name: 'Logo 13', image: logo13 },
+    { name: 'Logo 14', image: logo14 },
+    { name: 'Logo 15', image: logo15 },
+    { name: 'Logo 16', image: logo16 },
+    { name: 'Logo 17', image: logo17 },
+    { name: 'Logo 18', image: logo18 },
+    { name: 'Logo 19', image: logo19 },
+    { name: 'Logo 20', image: logo20 },
+    { name: 'Logo 21', image: logo21 },
+    { name: 'Logo 22', image: logo22 },
+    { name: 'Logo 23', image: logo23 },
+    { name: 'Logo 24', image: logo24 },
+    { name: 'Logo 25', image: logo25 },
+    { name: 'Logo 26', image: logo26 },
+    { name: 'Logo 27', image: logo27 },
+    { name: 'Logo 28', image: logo28 },
+    { name: 'Logo 29', image: logo29 },
+    { name: 'Logo 30', image: logo30 },
+    { name: 'Logo 31', image: logo31 },
+    { name: 'Logo 32', image: logo32 },
+    { name: 'Logo 1', image: logo1 },
+    { name: 'Logo 2', image: logo2 },
+    { name: 'Logo 3', image: logo3 },
+    { name: 'Logo 4', image: logo4 },
+    { name: 'Logo 5', image: logo5 },
+    { name: 'Logo 6', image: logo6 },
+    { name: 'Logo 7', image: logo7 },
+    { name: 'Logo 8', image: logo8 },
+    { name: 'Logo 9', image: logo9 },
+    { name: 'Logo 10', image: logo10 },
+    { name: 'Logo 11', image: logo11 },
+    { name: 'Logo 12', image: logo12 },
+    { name: 'Logo 13', image: logo13 },
+    { name: 'Logo 14', image: logo14 },
+    { name: 'Logo 15', image: logo15 },
+    { name: 'Logo 16', image: logo16 },
+    { name: 'Logo 17', image: logo17 },
+    { name: 'Logo 18', image: logo18 },
+    { name: 'Logo 19', image: logo19 },
+    { name: 'Logo 20', image: logo20 },
+    { name: 'Logo 21', image: logo21 },
+    { name: 'Logo 22', image: logo22 },
+    { name: 'Logo 23', image: logo23 },
+    { name: 'Logo 24', image: logo24 },
+    { name: 'Logo 25', image: logo25 },
+    { name: 'Logo 26', image: logo26 },
+    { name: 'Logo 27', image: logo27 },
+    { name: 'Logo 28', image: logo28 },
+    { name: 'Logo 29', image: logo29 },
+    { name: 'Logo 30', image: logo30 },
+    { name: 'Logo 31', image: logo31 },
+    { name: 'Logo 32', image: logo32 },
   ];
 
   useEffect(() => {
@@ -497,7 +575,7 @@ const CorporateSection = () => {
 
     const initScroll = () => {
       const firstLogo = logosWrapper.querySelector('.corporate-logo-item');
-      const lastLogo = logosWrapper.querySelector('.corporate-logo-item:nth-child(6)');
+      const lastLogo = logosWrapper.querySelector('.corporate-logo-item:nth-child(32)');
       
       if (!firstLogo || !lastLogo) return;
 

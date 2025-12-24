@@ -278,7 +278,7 @@ const SectionFour = () => {
       scrollTrigger: {
         trigger: section,
         // markers:true,
-        start: 'top 60%', // Start when top of section reaches bottom of viewport (enters viewport)
+        start: 'top 50%', // Start later than title to ensure title appears first
         end: 'bottom top', // End when bottom of section reaches top of viewport (leaves viewport)
         toggleActions: 'play none none reverse',
         onEnter: (self) => {
@@ -367,7 +367,8 @@ const SectionFour = () => {
     // Note: Label and title are animated by the reveal animation useEffect
     // Note: Project items are animated by dedicated fade-in-up animation useEffect
     // We only animate description here
-    // Animate description
+    // Animate description with delay to start after title animation completes
+    // Title animation: 0.3s delay + 0.8s duration = 1.1s, so delay description by 1.2s
     tl.to(descWordElements, {
       opacity: 1,
       y: 0,
@@ -377,10 +378,11 @@ const SectionFour = () => {
         amount: 0.6,
         from: 'start'
       },
+      delay: 1.2,
       onComplete: () => {
         hasAnimated = true;
       }
-    }, '-=0.4');
+    });
 
     // Hide hover image when scrolling past section
     ScrollTrigger.create({
