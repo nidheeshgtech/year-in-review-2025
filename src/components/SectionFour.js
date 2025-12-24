@@ -219,7 +219,7 @@ const SectionFour = () => {
     { name: 'ICOM 2025', label: 'Events', description: '', image: icom, link: 'https://dubai2025.icom.museum/' },
     { name: 'ai71', label: 'Events', description: '', image: ai71, link: 'https://ai71.ai/' },
     { name: 'Afresco', label: 'Branding', description: '', image: afresco, link: 'https://afresco.com/' },
-    { name: 'Gender Balance Council UAE', label: '', image: gbc, link: 'https://pledge.gbc.gov.ae/' },
+    { name: 'Gender Balance Council UAE', label: 'Branding', image: gbc, link: 'https://pledge.gbc.gov.ae/' },
     { name: 'GETS', label: 'Events', description: '', image: gets, link:'https://gets.ae/' },
     { name: 'Yellow Door Energy', label: 'Events', description: '', image: yde, link:'https://yellowdoorenergy.com/' }
   ];
@@ -1035,7 +1035,7 @@ const SectionFour = () => {
               <div className="project-name-wrapper">
                 <div className="project-name">{project.name}</div>
               </div>
-              <div className="project-arrow">View All Projects</div>
+              <div className="project-arrow">View</div>
             </a>
           </div>
         ))}
