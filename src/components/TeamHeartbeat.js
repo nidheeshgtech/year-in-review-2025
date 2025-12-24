@@ -16,6 +16,7 @@ const TeamHeartbeat = () => {
   const runnerRef = useRef(null);
   const bodiesRef = useRef([]);
   const staggerTimeoutsRef = useRef([]);
+  const hasAnimatedRef = useRef(false);
 
   // ============================================
   // REVEAL HEADER TITLE ANIMATION WITH SPLITTING
@@ -634,6 +635,16 @@ const TeamHeartbeat = () => {
     // Function to reset body positions and start animation
     const startAnimation = () => {
       if (!capsuleBodies || !targetPositions || !engine || !runner) return;
+      
+      // If animation has already started/completed, don't restart
+      if (hasAnimatedRef.current) {
+        // Just ensure runner is running to keep physics active
+        MatterRunner.run(runner, engine);
+        return;
+      }
+
+      // Mark as started immediately to prevent any restarts
+      hasAnimatedRef.current = true;
 
       // Clear any existing stagger timeouts before starting a new sequence
       if (staggerTimeoutsRef.current.length) {
@@ -702,6 +713,14 @@ const TeamHeartbeat = () => {
 
     // Function to stop animation when leaving viewport
     const stopAnimation = () => {
+      // Never stop/reset if animation has already started - keep physics running
+      if (hasAnimatedRef.current) {
+        // Keep runner running to maintain physics state
+        MatterRunner.run(runner, engine);
+        return;
+      }
+
+      // Only stop if animation hasn't started yet
       if (runner) {
         MatterRunner.stop(runner);
       }
@@ -731,20 +750,37 @@ const TeamHeartbeat = () => {
       start: 'top 60%', // Start when top of section reaches 80% down viewport
       end: 'bottom 30%', // End when bottom of section reaches 20% up viewport
       onEnter: () => {
-        // Start animation when section enters viewport
-        startAnimation();
+        // Start animation when section enters viewport (only once)
+        if (!hasAnimatedRef.current) {
+          startAnimation();
+        } else {
+          // If already animated, just ensure runner is running
+          MatterRunner.run(runner, engine);
+        }
       },
       onEnterBack: () => {
-        // Start animation when scrolling back up and section re-enters
-        startAnimation();
+        // If already animated, just ensure runner is running (never restart)
+        if (!hasAnimatedRef.current) {
+          startAnimation();
+        } else {
+          MatterRunner.run(runner, engine);
+        }
       },
       onLeave: () => {
-        // Stop animation when section leaves viewport (scrolling down)
-        stopAnimation();
+        // Keep physics running even when leaving - don't reset
+        if (hasAnimatedRef.current) {
+          MatterRunner.run(runner, engine);
+        } else {
+          stopAnimation();
+        }
       },
       onLeaveBack: () => {
-        // Stop animation when section leaves viewport (scrolling up)
-        stopAnimation();
+        // Keep physics running even when leaving - don't reset
+        if (hasAnimatedRef.current) {
+          MatterRunner.run(runner, engine);
+        } else {
+          stopAnimation();
+        }
       }
     });
 

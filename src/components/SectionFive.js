@@ -692,8 +692,9 @@ const SectionFive = () => {
               <div className="team-new-face">(→) Santhosh</div>
               <div className="team-new-face">(→) Klaudia</div>
               <div className="team-new-face">(→) Clarel</div>
-              <div className="team-new-face">(→) Santhosh</div>
-              <div className="team-new-face">(→) Klaudia</div>
+              <div className="team-new-face">(→) Kundan</div>
+              <div className="team-new-face">(→) Percy</div>
+              <div className="team-new-face">(→) Clarel</div>
             </div>
           </div>
         </div>
