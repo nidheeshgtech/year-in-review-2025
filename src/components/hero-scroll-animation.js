@@ -29,7 +29,7 @@ export function initHeroScrollAnimation(
   let capturedRotationY = null;
 
   const isMobile = window.innerWidth < 768;
-  const scrollMultiplier = isMobile ? 5 : 10;
+  const scrollMultiplier = isMobile ? 5 : 7;
 
   const scrollTrigger = ScrollTrigger.create({
     trigger: ".hero",
