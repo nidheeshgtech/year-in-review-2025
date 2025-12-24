@@ -34,17 +34,21 @@ const Hero = () => {
   return (
     <section className="hero section">
       
-      <span className="view-show-reel">
-        <a href="#section7" onClick={handleOpenShowReel}>
-          <span className="instrument">Watch 2025 Recap</span>
-          <img src={recapIcon} alt="View Show Reel" />
-        </a>
-      </span>
+     
       
       <div className="hero__intro__text__container text-white">
         <div className="hero__intro__text hero__intro__text--left">Defining the Future</div>
         <div className="hero__intro__text hero__intro__text--right instrument">
           Through <br /> Unprecedented <br />  Scale and Impact
+
+           <span className="view-show-reel">
+              <a href="#section7" onClick={handleOpenShowReel}>
+                <span className="instrument">Watch 2025 Recap</span>
+                <img src={recapIcon} alt="View Show Reel" />
+              </a>
+            </span>
+
+            
         </div>
       </div>
 

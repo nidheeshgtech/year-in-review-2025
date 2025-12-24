@@ -2440,7 +2440,6 @@ img {
   }
 
   .recap-video-container{
-    background: #e3e5e6;
     border-radius: 10px;
 
     @media (max-width: 768px) {
@@ -2617,9 +2616,9 @@ img {
 }
 
 .view-show-reel{
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
+  // position: absolute;
+  // bottom: 50px;
+  // right: 50px;
 
   z-index: 10;
   a{
